@@ -46,8 +46,7 @@ function playRound(playerSelection, computerSelection) {
     
     }
 
-// instanciamos las funciones y probamos si funciona el código (Si funciona)
-
+// Por último creamos la función game() para jugar 5 veces
 function game() {
     for (let i = 1; i <= 5; i++) {
         playerSelection = prompt("Rock, Paper or Scissors?")
