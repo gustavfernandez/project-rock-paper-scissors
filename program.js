@@ -47,12 +47,18 @@ function playRound(playerSelection, computerSelection) {
     }
 
 // instanciamos las funciones y probamos si funciona el código (Si funciona)
-playerSelection = prompt("Rock, Paper or Scissors?")
-computerSelection = getComputerChoice()
 
-game = playRound(playerSelection, computerSelection)
-console.log(game)
+function game() {
+    for (let i = 1; i <= 5; i++) {
+        playerSelection = prompt("Rock, Paper or Scissors?")
+        computerSelection = getComputerChoice()
 
+        round = playRound(playerSelection, computerSelection)
+        console.log(round)
+    }
+}
+
+game()
 
 
 
