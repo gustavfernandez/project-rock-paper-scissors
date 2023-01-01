@@ -46,26 +46,31 @@ function playRound(playerSelection, computerSelection) {
         }
     }
 
-// Por último creamos la función game() para jugar 5 veces
-function game() {
-    myWins = 0
-    computerWins = 0
-    for (let i = 1; myWins < 5 && computerWins < 5; i++) {
-        playerSelection = prompt("Rock, Paper or Scissors?")
+myWins = 0
+computerWins = 0
+
+// Event listener al clickear un botón
+// La lógica de juego está dentro del event listener
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
         computerSelection = getComputerChoice()
-        round = playRound(playerSelection, computerSelection)
-        console.log(round[0])
+        round = playRound(button.id, computerSelection)
+        addResult(round[0])
         if (round[1] === "me") {myWins++} else if (round[1] === "pc") {computerWins++}
-    }
+        
+        if (myWins === 5) {
+            addResult("Easy Money... You win")
+        } else if (computerWins === 5) {
+            addResult("Pc is the champion")
+        }
+    })
+})
 
-    if (myWins === 5) {
-        console.log("Easy Money... You win")
-    } else {
-        console.log("Pc is the champion")
-    }
+//Función que agrega el texto al DOM
+function addResult(text) {
+    container = document.querySelector(".container-result")
+    result = document.createElement("div")
+    result.textContent = text
+    container.appendChild(result)
 }
-
-game()
-
-
-
