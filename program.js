@@ -59,7 +59,7 @@ function game() {
     }
 
     if (myWins === 5) {
-        console.log("Easy Money...")
+        console.log("Easy Money... You win")
     } else {
         console.log("Pc is the champion")
     }
